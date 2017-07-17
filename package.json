@@ -1,5 +1,5 @@
 {
-  "name": "three-typescript-starter",
+  "name": "gg",
   "version": "1.0.0",
   "description": "three.js + typescript",
   "main": "index.js",
@@ -7,33 +7,29 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --inline --open"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pinqy520/three-typescript-starter.git"
-  },
   "keywords": [],
-  "author": "Huang Qi",
+  "author": "b12f",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pinqy520/three-typescript-starter/issues"
   },
   "homepage": "https://github.com/pinqy520/three-typescript-starter#readme",
   "devDependencies": {
-    "awesome-typescript-loader": "latest",
-    "browser-sync": "latest",
-    "browser-sync-webpack-plugin": "latest",
-    "css-loader": "latest",
-    "extract-text-webpack-plugin": "latest",
-    "html-webpack-plugin": "latest",
-    "json-loader": "latest",
-    "progress-bar-webpack-plugin": "latest",
-    "style-loader": "latest",
-    "typescript": "latest",
-    "webpack": "latest",
-    "webpack-dev-server": "latest"
+    "@types/three": "^0.84.17",
+    "awesome-typescript-loader": "^3.2.1",
+    "browser-sync": "^2.18.12",
+    "browser-sync-webpack-plugin": "^1.2.0",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^2.29.0",
+    "json-loader": "^0.5.4",
+    "progress-bar-webpack-plugin": "^1.10.0",
+    "style-loader": "^0.18.2",
+    "typescript": "^2.4.1",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
   },
   "dependencies": {
-    "@types/three": "latest",
-    "three": "latest"
+    "three": "^0.86.0"
   }
 }
