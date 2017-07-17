@@ -34,7 +34,7 @@ node_modules
 
 # Dist and OSX
 dist
-lib
+/lib
 .DS_Store
 
 # Yarn

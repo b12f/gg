@@ -14,6 +14,7 @@ let renderer = new THREE.WebGLRenderer()
 // set size
 renderer.setSize(window.innerWidth, window.innerHeight)
 
+
 // add canvas to dom
 document.body.appendChild(renderer.domElement)
 

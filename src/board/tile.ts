@@ -1,43 +1,44 @@
-import { Material, Geometry, MeshPhongMaterial, Mesh } from 'three';
+import { Material, Geometry, MeshPhongMaterial, Mesh, Vector3, Euler } from 'three';
+import { generateID, randomizeRGB } from '../tools';
 import { DEG_TO_RAD } from '../constants';
+
+export interface TileConfig {
+    cell: any;
+    geometry: Geometry;
+    material: Material;
+    size?: number;
+    scale?: number;
+}
 
 export class Tile {
     public cell: any;
     public material: Material;
     public geometry: Geometry;
+    public mesh: Mesh;
     public uniqueID: string;
+    public entity: any;
+    public userData: any = {};
+    public selected = false;
+    public highlight = '0x0084cc';
+    public position: Vector3;
+    public rotation: Euler;
+    public _emissive: any;
 
-    constructor(config = {}) {
-        var settings = {
-            cell: null, // required vg.Cell
-            geometry: null, // required threejs geometry
-            material: null // not required but it would improve performance significantly
-        };
-        settings = vg.Tools.merge(settings, config);
-
-        if (!settings.cell || !settings.geometry) {
-            throw new Error('Missing vg.Tile configuration');
-        }
-
-        this.cell = settings.cell;
+    constructor(settings: TileConfig = {cell: null, geometry: null, material: null}) {
         if (this.cell.tile && this.cell.tile !== this) this.cell.tile.dispose(); // remove whatever was there
         this.cell.tile = this;
 
-        this.uniqueID = vg.Tools.generateID();
+        this.uniqueID = generateID();
 
         this.geometry = settings.geometry;
         this.material = settings.material;
         if (!this.material) {
             this.material = new MeshPhongMaterial({
-                color: vg.Tools.randomizeRGB('30, 30, 30', 13)
+                color: randomizeRGB('30, 30, 30', 13)
             });
         }
 
         this.entity = null;
-        this.userData = {};
-
-        this.selected = false;
-        this.highlight = '0x0084cc';
 
         this.mesh = new Mesh(this.geometry, this.material);
         this.mesh.userData.structure = this;
