@@ -1,24 +1,29 @@
 {
-    "name": "gg-pixi",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "start": "webpack-dev-server",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@types/pixi.js": "^4.5.1",
-        "awesome-typescript-loader": "^3.2.1",
-        "browser-sync": "^2.18.12",
-        "browser-sync-webpack-plugin": "^1.2.0",
-        "html-webpack-plugin": "^2.29.0",
-        "progress-bar-webpack-plugin": "^1.10.0",
-        "source-map-loader": "^0.2.1",
-        "typescript": "^2.4.1",
-        "webpack": "^3.3.0",
-        "webpack-dev-server": "^2.5.1"
-    }
+  "name": "gg-pixi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --content-base ./assets/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/pixi.js": "^4.5.1",
+    "awesome-typescript-loader": "^3.2.1",
+    "browser-sync": "^2.18.12",
+    "browser-sync-webpack-plugin": "^1.2.0",
+    "html-webpack-plugin": "^2.29.0",
+    "progress-bar-webpack-plugin": "^1.10.0",
+    "source-map-loader": "^0.2.1",
+    "typescript": "^2.4.1",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "dependencies": {
+    "debug": "^2.6.8",
+    "hex-pixi-js": "git+ssh://git@github.com/b12f/HexPixiJs.git",
+    "pixi.js": "^4.5.3"
+  }
 }

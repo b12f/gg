@@ -16,6 +16,12 @@ const BrowserSyncPluginConfig = new BrowserSyncPlugin({
     reload: false
 })
 
+const CommonsChunkPluginConfig = new (require('webpack').optimize).CommonsChunkPlugin({
+    name: 'vendor',
+    filename: 'vendor.js',
+    minChunks: Infinity
+});
+
 /* Configure ProgressBar */
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const ProgressBarPluginConfig = new ProgressBarPlugin()
@@ -23,9 +29,13 @@ const ProgressBarPluginConfig = new ProgressBarPlugin()
 /* Export configuration */
 module.exports = {
     devtool: 'source-map',
-    entry: [
-        './src/index.ts'
-    ],
+    entry: {
+        vendor: [
+            'pixi.js',
+            'hex-pixi-js'
+        ],
+        app: './src/index.ts'
+    },
     output: {
         path: __dirname + '/dist',
         filename: 'index.js'
@@ -37,7 +47,7 @@ module.exports = {
                 loader: 'awesome-typescript-loader'
             }, {
                 test: /\.css$/,
-                exclude: /[\/\\]src[\/\\]/,
+                //exclude: /[\/\\]src[\/\\]/,
                 loaders: [
                     'style-loader?sourceMap',
                     'css-loader'
@@ -53,5 +63,5 @@ module.exports = {
         ]
     },
     resolve: { extensions: [".web.ts", ".web.js", ".ts", ".js"] },
-    plugins: [HTMLWebpackPluginConfig, BrowserSyncPluginConfig, ProgressBarPluginConfig]
+    plugins: [CommonsChunkPluginConfig, HTMLWebpackPluginConfig, BrowserSyncPluginConfig, ProgressBarPluginConfig]
 }
